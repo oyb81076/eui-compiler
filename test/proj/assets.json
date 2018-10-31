@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "_id": "base_css",
+      "filename": "base.css",
+      "mine": "text/css"
+    },
+    {
+      "_id": "favicon_ico",
+      "filename": "favicon.cio",
+      "mine": "image/x-icon"
+    },
+    {
+      "_id": "index_css",
+      "filename": "index.css",
+      "mine": "text/css"
+    },
+    {
+      "_id": "index_html",
+      "filename": "index.html",
+      "mine": "text/html"
+    },
+    {
+      "_id": "product_html",
+      "filename": "product.html",
+      "mine": "text/html"
+    }
+  ]
+}

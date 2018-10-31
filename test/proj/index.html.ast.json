@@ -1,0 +1,110 @@
+{
+  "nodes": [
+    {
+      "type": "tag",
+      "tag": "html",
+      "attrs": [ { "name": "lang", "value": "zh-cmn-Hans" } ],
+      "nodes": [{
+        "type": "tag",
+        "tag": "head",
+        "attrs": [],
+        "nodes": [
+          {
+            "type": "tag",
+            "tag": "meta",
+            "attrs": [
+              { "name": "charset", "value": "UTF-8" }
+            ]
+          },
+          {
+            "type": "tag",
+            "tag": "meta",
+            "attrs": [
+              { "name": "name", "value": "viewport" },
+              { "name": "content", "value": "width=device-width, initial-scale=1.0" }
+            ]
+          },
+          {
+            "type": "tag",
+            "tag": "meta",
+            "attrs": [
+              { "name": "name", "value": "namewords" },
+              { "name": "content", "value": "eui,tech,html,css" }
+            ]
+          },
+          {
+            "type": "tag",
+            "tag": "meta",
+            "attrs": [
+              { "name": "name", "value": "description" },
+              { "name": "content", "value": "this a test html" }
+            ]
+          },
+          {
+            "type": "tag",
+            "tag": "link",
+            "attrs": [
+              { "name": "rel", "value": "stylesheet" },
+              { "name": "type", "value": "text/css" },
+              { "name": "href", "value": "db://id/base_css" }
+            ]
+          },
+          {
+            "type": "tag",
+            "tag": "link",
+            "attrs": [
+              { "name": "rel", "value": "stylesheet" },
+              { "name": "type", "value": "text/css" },
+              { "name": "href", "value": "db://id/index_css" }
+            ]
+          },
+          {
+            "type": "tag",
+            "tag": "link",
+            "attrs": [
+              { "name": "rel", "value": "shortcut icon" },
+              { "name": "type", "value": "image/x-icon" },
+              { "name": "sizes", "value": "64x64" },
+              { "name": "href", "value": "db://id/favicon_ico" }
+            ]
+          },
+          {
+            "type": "tag",
+            "tag": "title",
+            "nodes": [ { "type": "text", "value": "K.O." } ]
+          }
+        ]
+      }, {
+        "type": "tag",
+        "tag": "body",
+        "attrs": [],
+        "nodes": [
+          {
+            "type": "tag",
+            "tag": "header",
+            "attrs": [ { "name": "class", "value": "header" }],
+            "nodes": [
+              {
+                "type": "tag",
+                "tag": "nav",
+                "attrs": [],
+                "nodes": [
+                  {
+                    "type": "tag",
+                    "tag": "a",
+                    "attrs": [
+                      { "name": "href", "value": "product.html" }
+                    ],
+                    "nodes": [
+                      { "type": "text", "value": "Product" }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }]
+    }
+  ]
+}

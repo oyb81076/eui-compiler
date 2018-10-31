@@ -1,0 +1,18 @@
+header {
+  position: fixed;
+  height: 30px;
+  line-height: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: black url(favicon.ico) no-repeat center / 30px;
+}
+header nav {
+  display: flex;
+}
+header nav a {
+  display: inline-block;
+}
+body {
+  padding-top: 30px;
+}
