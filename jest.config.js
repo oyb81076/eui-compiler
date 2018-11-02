@@ -5,4 +5,5 @@ module.exports = {
   "testMatch": ["<rootDir>/test/**/*.(test|spec).(js|ts|tsx)"],
   "transform": { "^.+\\.tsx?$": "ts-jest" },
   "transformIgnorePatterns": ["/node_modules/"],
+  "snapshotSerializers": ["./scripts/jest-html-serializer"],
 }

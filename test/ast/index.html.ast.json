@@ -1,0 +1,229 @@
+{
+  "type": "#document",
+  "nodes": [
+    {
+      "attrs": [
+        {
+          "name": "lang",
+          "value": "zh-cmn-Hans"
+        }
+      ],
+      "nodes": [
+        {
+          "attrs": [],
+          "nodes": [
+            {
+              "attrs": [
+                {
+                  "name": "charset",
+                  "value": "UTF-8"
+                }
+              ],
+              "nodes": [],
+              "tag": "meta",
+              "type": "tag"
+            },
+            {
+              "attrs": [
+                {
+                  "name": "name",
+                  "value": "viewport"
+                },
+                {
+                  "name": "content",
+                  "value": "width=device-width, initial-scale=1.0"
+                }
+              ],
+              "nodes": [],
+              "tag": "meta",
+              "type": "tag"
+            },
+            {
+              "attrs": [
+                {
+                  "name": "http-equiv",
+                  "value": "X-UA-Compatible"
+                },
+                {
+                  "name": "content",
+                  "value": "ie=edge"
+                }
+              ],
+              "nodes": [],
+              "tag": "meta",
+              "type": "tag"
+            },
+            {
+              "attrs": [
+                {
+                  "name": "name",
+                  "value": "keywords"
+                },
+                {
+                  "name": "content",
+                  "value": "eui,tech,html,css"
+                }
+              ],
+              "nodes": [],
+              "tag": "meta",
+              "type": "tag"
+            },
+            {
+              "attrs": [
+                {
+                  "name": "name",
+                  "value": "description"
+                },
+                {
+                  "name": "content",
+                  "value": "this a test html"
+                }
+              ],
+              "nodes": [],
+              "tag": "meta",
+              "type": "tag"
+            },
+            {
+              "attrs": [
+                {
+                  "name": "rel",
+                  "value": "stylesheet"
+                },
+                {
+                  "name": "type",
+                  "value": "text/css"
+                },
+                {
+                  "name": "href",
+                  "value": "base.css"
+                }
+              ],
+              "nodes": [],
+              "tag": "link",
+              "type": "tag"
+            },
+            {
+              "attrs": [
+                {
+                  "name": "rel",
+                  "value": "stylesheet"
+                },
+                {
+                  "name": "type",
+                  "value": "text/css"
+                },
+                {
+                  "name": "href",
+                  "value": "index.css"
+                }
+              ],
+              "nodes": [],
+              "tag": "link",
+              "type": "tag"
+            },
+            {
+              "attrs": [
+                {
+                  "name": "ref",
+                  "value": "shortcut icon"
+                },
+                {
+                  "name": "type",
+                  "value": "image/x-icon"
+                },
+                {
+                  "name": "sizes",
+                  "value": "64x64"
+                },
+                {
+                  "name": "href",
+                  "value": "favicon.ico"
+                }
+              ],
+              "nodes": [],
+              "tag": "link",
+              "type": "tag"
+            },
+            {
+              "attrs": [],
+              "nodes": [
+                {
+                  "type": "text",
+                  "value": "K.O."
+                }
+              ],
+              "tag": "title",
+              "type": "tag"
+            }
+          ],
+          "tag": "head",
+          "type": "tag"
+        },
+        {
+          "attrs": [],
+          "nodes": [
+            {
+              "attrs": [
+                {
+                  "name": "class",
+                  "value": "header"
+                },
+                {
+                  "name": "style",
+                  "value": "background-image: url(\"favicon.ico\")"
+                }
+              ],
+              "nodes": [
+                {
+                  "attrs": [],
+                  "nodes": [
+                    {
+                      "attrs": [
+                        {
+                          "name": "href",
+                          "value": "product.html"
+                        }
+                      ],
+                      "nodes": [
+                        {
+                          "type": "text",
+                          "value": "Product"
+                        }
+                      ],
+                      "tag": "a",
+                      "type": "tag"
+                    },
+                    {
+                      "attrs": [
+                        {
+                          "name": "href",
+                          "value": "product.html"
+                        }
+                      ],
+                      "nodes": [
+                        {
+                          "type": "text",
+                          "value": "\n        Product2\n      "
+                        }
+                      ],
+                      "tag": "a",
+                      "type": "tag"
+                    }
+                  ],
+                  "tag": "nav",
+                  "type": "tag"
+                }
+              ],
+              "tag": "header",
+              "type": "tag"
+            }
+          ],
+          "tag": "body",
+          "type": "tag"
+        }
+      ],
+      "tag": "html",
+      "type": "tag"
+    }
+  ]
+}

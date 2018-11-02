@@ -32,5 +32,5 @@ const voidElements = [
   "wbr",
 ];
 const voids = svgElements.concat(voidElements);
-const isSelfCloseTag = (tag: string): boolean => voids.indexOf(tag) === -1;
+const isSelfCloseTag = (tag: string): boolean => voids.indexOf(tag) !== -1;
 export default isSelfCloseTag;

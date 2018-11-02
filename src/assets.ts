@@ -1,7 +1,7 @@
 import join from "path-url/join";
-import { IAssets } from "./faces";
+import { IAsset } from "./faces";
 
-const getAsset = (assets: Record<string, IAssets>, dirname: string, uri: string) => {
+const getAsset = (assets: Record<string, IAsset>, dirname: string, uri: string) => {
   if (/^https?:\/\//.test(uri)) {
     return uri;
   } else if (/^db:\/\/(id|fs)\//) {
@@ -20,7 +20,7 @@ const getAsset = (assets: Record<string, IAssets>, dirname: string, uri: string)
  * @param dirname
  * @param uri
  */
-export const uri2ID = (assets: Record<string, IAssets>, dirname: string, uri: string) => {
+export const uri2ID = (assets: Record<string, IAsset>, dirname: string, uri: string) => {
   const asset = getAsset(assets, dirname, uri);
   if (typeof asset === "string") {
     return asset;
@@ -39,11 +39,20 @@ export const uri2ID = (assets: Record<string, IAssets>, dirname: string, uri: st
  * @param dirname
  * @param uri
  */
-export const uri2Absolute = (assets: Record<string, IAssets>, dirname: string, uri: string) => {
+export const uri2Absolute = (assets: Record<string, IAsset>, dirname: string, uri: string) => {
   const asset = getAsset(assets, dirname, uri);
   if (typeof asset === "string") {
     return asset;
   } else {
     return "/" + asset.filename;
   }
+};
+
+export const parseAssets = <T extends IAsset>(assetsArray: T[]): Record<string, T> => {
+  const assets: Record<string, T> = {};
+  assetsArray.forEach((src) => {
+    assets["db://id/" + src._id] = src;
+    assets["db://fs/" + src.filename] = src;
+  });
+  return assets;
 };

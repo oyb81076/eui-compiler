@@ -1,0 +1,52 @@
+{
+  "db://id/base_css": {
+    "_id": "base_css",
+    "filename": "base.css",
+    "mine": "text/css"
+  },
+  "db://fs/base.css": {
+    "_id": "base_css",
+    "filename": "base.css",
+    "mine": "text/css"
+  },
+  "db://id/favicon_ico": {
+    "_id": "favicon_ico",
+    "filename": "favicon.cio",
+    "mine": "image/x-icon"
+  },
+  "db://fs/favicon.cio": {
+    "_id": "favicon_ico",
+    "filename": "favicon.cio",
+    "mine": "image/x-icon"
+  },
+  "db://id/index_css": {
+    "_id": "index_css",
+    "filename": "index.css",
+    "mine": "text/css"
+  },
+  "db://fs/index.css": {
+    "_id": "index_css",
+    "filename": "index.css",
+    "mine": "text/css"
+  },
+  "db://id/index_html": {
+    "_id": "index_html",
+    "filename": "index.html",
+    "mine": "text/html"
+  },
+  "db://fs/index.html": {
+    "_id": "index_html",
+    "filename": "index.html",
+    "mine": "text/html"
+  },
+  "db://id/product_html": {
+    "_id": "product_html",
+    "filename": "product.html",
+    "mine": "text/html"
+  },
+  "db://fs/product.html": {
+    "_id": "product_html",
+    "filename": "product.html",
+    "mine": "text/html"
+  }
+}

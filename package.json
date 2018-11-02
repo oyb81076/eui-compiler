@@ -2,7 +2,12 @@
   "name": "eui-compiler",
   "version": "0.0.1",
   "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "dump": "ts-node test/ast.dump.ts"
+  },
   "devDependencies": {
+    "@types/jest": "^23.3.9",
     "@types/node": "^10.12.1",
     "@types/parse5": "^5.0.0",
     "jest": "^23.6.0",

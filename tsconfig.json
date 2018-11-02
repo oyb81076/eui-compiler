@@ -4,6 +4,7 @@
     "module": "commonjs",
     "declaration": true,
     "sourceMap": true,
+    "resolveJsonModule": true,
     "outDir": "./build",
     "strict": true,
     "noImplicitAny": true,

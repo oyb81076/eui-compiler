@@ -14,8 +14,9 @@ export interface IHTMLDocument {
   nodes: IHTMLNode[];
 }
 
-export interface IAssets {
+export interface IAsset {
   _id: string;
   filename: string;
   mine: string;
 }
+export type IAssets = Record<string, IAsset>;

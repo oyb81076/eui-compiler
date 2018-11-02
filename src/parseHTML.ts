@@ -1,36 +1,33 @@
 import { DefaultTreeDocument, parse } from "parse5";
-import path from "path-url";
-import { uri2ID } from "./_assets";
+import dirname from "path-url/dirname";
 import parseHTMLNodes from "./_parseHTMLNodes";
 import walkHTML from "./_walkHTML";
+import { uri2ID } from "./assets";
 import { IAssets, IHTMLDocument, IHTMLNode, IHTMLTagNode } from "./faces";
-const transHTMLAttrURI = (assets: Record<string, IAssets>, dirname: string, node: IHTMLTagNode) => {
+const transHTMLAttrURI = (assets: IAssets, dir: string, node: IHTMLTagNode) => {
   switch (node.tag) {
     case "link":
     case "a":
       node.attrs.forEach((x) => {
         if (x.name === "href") {
-          x.value = uri2ID(assets, dirname, x.value);
+          x.value = uri2ID(assets, dir, x.value);
         }
       });
       break;
   }
 };
-export const transformURI = (assets: Record<string, IAssets>, filename: string, nodes: IHTMLNode[]) => {
-  const dirname = path.dirname(filename);
+export const transformURI = (assets: IAssets, filename: string, nodes: IHTMLNode[]) => {
+  const dir = dirname(filename);
   walkHTML(nodes, (node) => {
     if (node.type === "tag") {
-      transHTMLAttrURI(assets, dirname, node);
+      transHTMLAttrURI(assets, dir, node);
     }
   });
 };
-export default function parseHTML(
-  assets: Record<string, IAssets>,
-  filename: string,
-  content: string,
-): IHTMLDocument {
+const parseHTML = (assets: IAssets, filename: string, content: string): IHTMLDocument => {
   const html = parse(content) as DefaultTreeDocument;
   const nodes = parseHTMLNodes(html.childNodes, true);
   transformURI(assets, filename, nodes);
   return { type: "#document", nodes };
-}
+};
+export default parseHTML;
