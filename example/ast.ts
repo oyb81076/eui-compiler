@@ -3,8 +3,8 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { parseAssets } from "../src/assets";
-import parseHTML from "../src/parseHTML";
-import serializeHTML from "../src/serializeHTML";
+import { parseHTML } from "../src/html-parser";
+import { serializeHTML } from "../src/html-serializer";
 const stringify = require("json-stringify-pretty-compact");
 const res = {
   "assets": require("./res/assets.json"),
