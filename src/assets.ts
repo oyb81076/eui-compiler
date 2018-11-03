@@ -1,13 +1,18 @@
 import join from "path-url/join";
 import { IAsset } from "./faces";
+const SLASH = "/".charCodeAt(0);
 
 const getAsset = (assets: Record<string, IAsset>, dirname: string, uri: string) => {
-  if (/^https?:\/\//.test(uri)) {
+  if (/^(http|https|file):\/\//.test(uri)) {// http开头
     return uri;
-  } else if (/^db:\/\/(id|fs)\//) {
+  } else if (uri.charCodeAt(0) === SLASH) {// 斜杠开头
+    if (uri.charCodeAt(1) === SLASH) {// //开头
+      return uri;
+    } else { // /开头
+      return assets["db://fs" + uri] || uri;
+    }
+  } else if (/^db:\/\/(id|fs)\//) { // db:// 开头
     return assets[uri] || uri;
-  } else if (uri[0] === "/") {
-    return assets["db://fs" + uri] || uri;
   } else {
     const filename = join(dirname, uri);
     return assets["db://fs/" + filename];

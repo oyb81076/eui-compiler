@@ -33,10 +33,9 @@ const serializeNode = (assets: IAssets, dir: string, node: IHTMLNode, indent: st
     }
   }
 };
-const serializeHTML = (assets: IAssets, filename: string, doc: IHTMLDocument): string => {
+export const serializeHTML = (assets: IAssets, filename: string, doc: IHTMLDocument): string => {
   const dir = dirname(filename);
   return "<!DOCTYPE html>\n" + doc.nodes.map((node) => {
     return serializeNode(assets, dir, node, "");
   }).join("");
 };
-export default serializeHTML;

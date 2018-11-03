@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node@8/8.11.4/bin/node /usr/local/Cellar/yarn/1.9.4/libexec/bin/yarn.js add @types/json-stringify-pretty-compact
+  /usr/local/Cellar/node@8/8.11.4/bin/node /usr/local/Cellar/yarn/1.9.4/libexec/bin/yarn.js add @types/postcss -D
 
 PATH: 
   /usr/local/opt/node@8/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/share/dotnet:/opt/X11/bin:/Applications/Wireshark.app/Contents/MacOS:/usr/local/opt/node@8/bin:/usr/local/sbin:/Users/oyb/.rvm/bin:/Users/oyb/.rvm/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.npmjs.org/@types%2fjson-stringify-pretty-compact: Not found
+  Error: https://registry.npmjs.org/@types%2fpostcss: Not found
       at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:64202:18)
       at Request.self.callback (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:137468:22)
       at emitTwo (events.js:126:13)
@@ -33,13 +33,14 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "test": "jest",
-      "dump": "ts-node test/ast.dump.ts"
+      "ast": "ts-node example/ast.ts"
     },
     "devDependencies": {
       "@types/jest": "^23.3.9",
       "@types/node": "^10.12.1",
       "@types/parse5": "^5.0.0",
       "jest": "^23.6.0",
+      "json-stringify-pretty-compact": "^1.2.0",
       "ts-jest": "^23.10.4",
       "ts-node": "^7.0.1",
       "tslint": "^5.11.0",
@@ -47,9 +48,9 @@ npm manifest:
     },
     "dependencies": {
       "immutable": "^4.0.0-rc.12",
-      "json-stringify-pretty-compact": "^1.2.0",
       "parse5": "^5.1.0",
-      "path-url": "^0.0.2"
+      "path-url": "^0.0.2",
+      "postcss": "^7.0.5"
     }
   }
 
@@ -522,7 +523,7 @@ Lockfile:
       strip-ansi "^3.0.0"
       supports-color "^2.0.0"
   
-  chalk@^2.0.0, chalk@^2.0.1, chalk@^2.3.0:
+  chalk@^2.0.0, chalk@^2.0.1, chalk@^2.3.0, chalk@^2.4.1:
     version "2.4.1"
     resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.1.tgz#18c49ab16a037b6eb0152cc83e3471338215b66e"
     dependencies:
@@ -2427,6 +2428,14 @@ Lockfile:
     version "0.1.1"
     resolved "https://registry.npmjs.org/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   
+  postcss@^7.0.5:
+    version "7.0.5"
+    resolved "https://registry.npmjs.org/postcss/-/postcss-7.0.5.tgz#70e6443e36a6d520b0fd4e7593fcca3635ee9f55"
+    dependencies:
+      chalk "^2.4.1"
+      source-map "^0.6.1"
+      supports-color "^5.5.0"
+  
   prelude-ls@~1.1.2:
     version "1.1.2"
     resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -2923,7 +2932,7 @@ Lockfile:
     dependencies:
       has-flag "^1.0.0"
   
-  supports-color@^5.3.0:
+  supports-color@^5.3.0, supports-color@^5.5.0:
     version "5.5.0"
     resolved "https://registry.npmjs.org/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
     dependencies:

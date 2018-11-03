@@ -20,6 +20,7 @@
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
     "parse5": "^5.1.0",
-    "path-url": "^0.0.2"
+    "path-url": "^0.0.2",
+    "postcss": "^7.0.5"
   }
 }
