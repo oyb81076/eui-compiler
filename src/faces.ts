@@ -34,11 +34,11 @@ export interface IHTMLFragment {
 /**
  * 以下部分为css部分文件
  */
-export interface ICssImportRule {
+export interface ICssAtRule {
   type: "atRule";
   name: string;
   params: string;
-  nodes?: ICssRule[];
+  nodes: ICssRule[];
 }
 export interface ICssRule {
   type: "rule";
@@ -50,21 +50,17 @@ export interface ICssDecl {
   prop: string;
   value: string;
 }
-export interface ICssDoc {
+export interface ICssDocument {
   type: "#document";
-  nodes: Array<ICssImportRule | ICssRule>;
+  nodes: Array<ICssAtRule | ICssRule>;
 }
 export interface ICssFragment {
   type: "#fragment";
-  nodes: Array<ICssImportRule | ICssRule>;
+  nodes: Array<ICssAtRule | ICssRule>;
 }
 export interface ICssInlineStyle {
   type: "#css-inline";
   nodes: ICssDecl[];
-}
-export interface ICssAtRule {
-  name: "font-face" | "import" | "media";
-  params: string;
 }
 
 /**
@@ -90,3 +86,4 @@ export interface IAssetsMap {
   has(key: string): boolean;
   getIn(paths: [string, "_id" | "filename" | "mine"]): string;
 }
+export type ParseURI = (uri: string) => string;

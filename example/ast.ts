@@ -2,7 +2,7 @@
 // 用来将./proj的编译中间的内容写入成文件
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
-import { parseAssets } from "../src/assets";
+import { makeUri2Absolute, makeUri2ID, parseAssets } from "../src/assets";
 import { parseHTML } from "../src/html-parser";
 import { serializeHTML } from "../src/html-serializer";
 const stringify = require("json-stringify-pretty-compact");
@@ -19,7 +19,7 @@ writeFileSync(
   stringify(assets, { margins: true }),
   { encoding: "utf8" },
 );
-const indexAst = parseHTML(assets, "index.html", res["index.html"]);
+const indexAst = parseHTML(makeUri2ID(assets, "index.html"), res["index.html"]);
 writeFileSync(
   join(__dirname, "./build/index.html.ast.json"),
   stringify(indexAst, { margins: true }),
@@ -27,6 +27,6 @@ writeFileSync(
 );
 writeFileSync(
   join(__dirname, "./build/index.html.ast.html"),
-  serializeHTML(assets, "index.html", indexAst),
+  serializeHTML(makeUri2Absolute(assets, "index.html"), indexAst),
   { encoding: "utf8" },
 );
