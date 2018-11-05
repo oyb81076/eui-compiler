@@ -12,7 +12,7 @@ const getAsset = (assets: Record<string, IAsset>, dir: string, uri: string) => {
     } else { // /开头
       return assets["db://fs" + uri] || uri;
     }
-  } else if (/^db:\/\/(id|fs)\//) { // db:// 开头
+  } else if (/^db:\/\/(id|fs)\//.test(uri)) { // db:// 开头
     return assets[uri] || uri;
   } else {
     const filename = join(dir, uri);
@@ -30,6 +30,9 @@ export const uri2ID = (assets: Record<string, IAsset>, dir: string, uri: string)
   const asset = getAsset(assets, dir, uri);
   if (typeof asset === "string") {
     return asset;
+  } else if (!asset) {
+    // throw Error( uri + " not found in assets");
+    return uri;
   } else {
     return "db://id/" + asset._id;
   }

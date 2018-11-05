@@ -1,4 +1,5 @@
 import { AtRule, ChildNode, Declaration, parse, Root, Rule } from "postcss";
+import { parseDeclValue } from "./_utils";
 import { ICssAtRule, ICssDecl, ICssDocument, ICssInlineStyle, ICssRule, ParseURI } from "./faces";
 
 const transformAtRuleURL = (parseURI: (uri: string) => string, rule: AtRule) => {
@@ -10,19 +11,7 @@ const transformAtRuleURL = (parseURI: (uri: string) => string, rule: AtRule) => 
   }
 };
 const transformDeclURL = (parseURI: (uri: string) => string, decl: Declaration) => {
-  switch (decl.prop) {
-    case "background":
-    case "background-image":
-    case "border-image":
-    case "border":
-    case "list-style":
-    case "list-style-image":
-    case "src":
-      decl.value = decl.value.replace(/url\(\s+["']?(.*)["']?\s+\)/ig, (_, value) => {
-        return "url(\"" + parseURI(value) + "\")";
-      });
-      break;
-  }
+  decl.value = parseDeclValue(parseURI, decl.prop, decl.value);
 };
 const parseDecls = (nodes?: ChildNode[]): ICssDecl[] => {
   if (!nodes) { return []; }
@@ -32,24 +21,33 @@ const parseDecls = (nodes?: ChildNode[]): ICssDecl[] => {
       return { type: "decl", prop: n.prop, value: n.value };
     });
 };
-const parseRule = ({ nodes, selectors, selector }: Rule): ICssRule => ({
-  nodes: parseDecls(nodes),
-  selectors: selectors || [selector],
-  type: "rule",
-});
-const parseRules = (nodes?: ChildNode[]): ICssRule[] => {
-  if (!nodes) { return []; }
+const parseRule = ({ nodes, selectors, selector }: Rule): ICssRule => {
+  return {
+    nodes: parseDecls(nodes),
+    selectors: selectors || [selector],
+    type: "rule",
+  };
+};
+const parseRules = (nodes: ChildNode[]): ICssRule[] => {
   return nodes
     .filter((x): x is Rule => x.type === "rule")
     .map(parseRule);
 };
 const parseAtRule = (rule: AtRule): ICssAtRule => {
-  return {
-    name: rule.name,
-    nodes: parseRules(rule.nodes),
-    params: rule.params,
-    type: "atRule",
-  };
+  if (rule.nodes) {
+    return {
+      name: rule.name,
+      nodes: parseRules(rule.nodes),
+      params: rule.params,
+      type: "atRule",
+    };
+  } else {
+    return {
+      name: rule.name,
+      params: rule.params,
+      type: "atRule",
+    };
+  }
 };
 const parseRootRules = (root: Root): ICssDocument["nodes"] => {
   const nodes: ICssDocument["nodes"] = [];
@@ -86,4 +84,3 @@ export const parseInlineStyle = (parseURI: ParseURI, content: string): ICssInlin
   const nodes = parseDecls(root.nodes);
   return { type: "#css-inline", nodes };
 };
-// export const serializeCss = (assets: IAssets, filename: string, content)=>

@@ -1,5 +1,5 @@
 import { DefaultTreeElement, DefaultTreeNode, DefaultTreeTextNode } from "parse5";
-import { isEmptyString } from "./_string";
+import { isEmptyString } from "./_utils";
 import { IHTMLNode } from "./faces";
 const isText = (node: DefaultTreeNode): node is DefaultTreeTextNode => {
   return node.nodeName === "#text";

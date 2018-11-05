@@ -1,5 +1,5 @@
-import isSelfCloseTag from "./_isSelfCloseTag";
-import { escapeAttrValue } from "./_string";
+import { SELF_CLOSE_TAG } from "./_constants";
+import { escapeAttrValue } from "./_utils";
 import { IHTMLDocument, IHTMLNode, IHTMLTextNode, ParseURI } from "./faces";
 const serializeNode = (parseURI: ParseURI, node: IHTMLNode, indent: string) => {
   switch (node.type) {
@@ -22,7 +22,7 @@ const serializeNode = (parseURI: ParseURI, node: IHTMLNode, indent: string) => {
         const nextIndent = tag === "html" ? indent : indent + "  ";
         out += nodes.map((child) => serializeNode(parseURI, child, nextIndent)).join("");
         out += indent + "</" + tag + ">\n";
-      } else if (isSelfCloseTag(tag)) {
+      } else if (SELF_CLOSE_TAG.has(tag)) {
         out += "/>\n";
       } else {
         out += "></" + tag + ">\n";

@@ -5,7 +5,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background: black url(favicon.ico) no-repeat center / 30px;
+  background: black url("./favicon.ico") no-repeat center / 30px;
 }
 header nav {
   display: flex;

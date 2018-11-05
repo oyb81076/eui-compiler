@@ -1,7 +1,16 @@
+export const URL_DECL_PROP = new Set([
+  "background",
+  "background-image",
+  "border",
+  "border-image",
+  "list-style",
+  "list-style-image",
+  "src",
+]);
 /**
  * @copyright https://github.com/jonschlinkert/self-closing-tags/blob/master/index.js
  */
-const svgElements = [
+export const SELF_CLOSE_TAG = new Set([
   "circle",
   "ellipse",
   "line",
@@ -11,9 +20,6 @@ const svgElements = [
   "rect",
   "stop",
   "use",
-];
-
-const voidElements = [
   "area",
   "base",
   "br",
@@ -30,7 +36,4 @@ const voidElements = [
   "source",
   "track",
   "wbr",
-];
-const voids = svgElements.concat(voidElements);
-const isSelfCloseTag = (tag: string): boolean => voids.indexOf(tag) !== -1;
-export default isSelfCloseTag;
+]);

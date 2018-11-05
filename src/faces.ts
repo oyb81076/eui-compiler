@@ -38,7 +38,7 @@ export interface ICssAtRule {
   type: "atRule";
   name: string;
   params: string;
-  nodes: ICssRule[];
+  nodes?: ICssRule[];
 }
 export interface ICssRule {
   type: "rule";

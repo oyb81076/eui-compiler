@@ -1,5 +1,6 @@
 /** 用于清除css浮动 */
-html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+html, body, ul, li, ol, dl, dd,
+dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
   margin: 0;
   padding: 0;
 }
@@ -30,7 +31,7 @@ select, input {
 img {
   border: 0;
   vertical-align: middle;
-} 
+}
 table {
   border-collapse: collapse;
 }
